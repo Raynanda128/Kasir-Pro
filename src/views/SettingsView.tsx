@@ -1,0 +1,329 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Settings, 
+  Store, 
+  Receipt, 
+  FileText, 
+  Building, 
+  Save, 
+  RotateCcw, 
+  CheckCircle2, 
+  AlertCircle,
+  Database,
+  ExternalLink,
+  Code2
+} from 'lucide-react';
+import { ReceiptSize, StoreSettings } from '../types';
+import { useToast } from '../components/Toast';
+import { isSupabaseConfigured } from '../lib/supabase';
+import { SupabaseGuideModal } from '../components/SupabaseGuideModal';
+
+interface SettingsViewProps {
+  settings: StoreSettings;
+  onSaveSettings: (updated: Partial<StoreSettings>) => Promise<void>;
+  onResetData: () => Promise<void>;
+}
+
+export const SettingsView: React.FC<SettingsViewProps> = ({
+  settings,
+  onSaveSettings,
+  onResetData
+}) => {
+  const { showToast } = useToast();
+  const [showSupabaseGuide, setShowSupabaseGuide] = useState(false);
+
+  const [storeName, setStoreName] = useState(settings.storeName);
+  const [logo, setLogo] = useState(settings.logo);
+  const [address, setAddress] = useState(settings.address);
+  const [phone, setPhone] = useState(settings.phone);
+  const [taxRate, setTaxRate] = useState<number | ''>(settings.taxRate);
+  const [defaultDiscountRate, setDefaultDiscountRate] = useState<number | ''>(settings.defaultDiscountRate);
+  const [invoicePrefix, setInvoicePrefix] = useState(settings.invoicePrefix);
+  const [receiptSize, setReceiptSize] = useState<ReceiptSize>(settings.receiptSize);
+  const [footerText, setFooterText] = useState(settings.footerText);
+  const [activeBranch, setActiveBranch] = useState(settings.activeBranch);
+
+  const [isSaving, setIsSaving] = useState(false);
+
+
+  useEffect(() => {
+    setStoreName(settings.storeName);
+    setLogo(settings.logo);
+    setAddress(settings.address);
+    setPhone(settings.phone);
+    setTaxRate(settings.taxRate);
+    setDefaultDiscountRate(settings.defaultDiscountRate);
+    setInvoicePrefix(settings.invoicePrefix);
+    setReceiptSize(settings.receiptSize);
+    setFooterText(settings.footerText);
+    setActiveBranch(settings.activeBranch);
+  }, [settings]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      setIsSaving(true);
+      await onSaveSettings({
+        storeName,
+        logo,
+        address,
+        phone,
+        taxRate: Number(taxRate) || 0,
+        defaultDiscountRate: Number(defaultDiscountRate) || 0,
+        invoicePrefix,
+        receiptSize,
+        footerText,
+        activeBranch
+      });
+      showToast('Pengaturan toko berhasil diperbarui!', 'success');
+    } catch (err: any) {
+      showToast(err.message || 'Gagal menyimpan pengaturan', 'error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  return (
+    <div className="p-4 lg:p-6 space-y-6 max-w-4xl mx-auto">
+      
+      {/* Header */}
+      <div>
+        <h2 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <Settings className="w-6 h-6 text-emerald-500" />
+          Pengaturan Profil Toko & Struk
+        </h2>
+        <p className="text-xs text-slate-500 dark:text-slate-400">Atur profil usaha, pajak, format invoice, ukuran cetak struk, dan integrasi Supabase Database</p>
+      </div>
+
+      {/* Supabase Database Connection Card */}
+      <div className="p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-950 text-white border border-slate-800 shadow-md space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-2xl border border-emerald-500/30">
+              <Database className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="font-extrabold text-base text-white">Database Supabase (PostgreSQL)</h3>
+                <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                  isSupabaseConfigured 
+                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                    : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                }`}>
+                  {isSupabaseConfigured ? 'Terhubung (Active)' : 'Perlu Setup / Env Vars'}
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-1">
+                {isSupabaseConfigured 
+                  ? 'Aplikasi KasirPro menggunakan Supabase sebagai database utama.' 
+                  : 'Buat tabel di Supabase SQL Editor dan salin kodenya secara otomatis.'}
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setShowSupabaseGuide(true)}
+            className="px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 shrink-0"
+          >
+            <Code2 className="w-4 h-4" />
+            Lihat Script SQL Supabase
+          </button>
+        </div>
+      </div>
+
+      <SupabaseGuideModal
+        isOpen={showSupabaseGuide}
+        onClose={() => setShowSupabaseGuide(false)}
+      />
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        
+        {/* Store Profile Info */}
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4">
+          <h3 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+            <Store className="w-4 h-4 text-emerald-500" />
+            Informasi Profil Toko
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Nama Toko / Usaha *
+              </label>
+              <input
+                type="text"
+                value={storeName}
+                onChange={(e) => setStoreName(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Nomor Telepon / WhatsApp
+              </label>
+              <input
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Alamat Toko Lengkap
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                URL Logo Toko
+              </label>
+              <input
+                type="url"
+                value={logo}
+                onChange={(e) => setLogo(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Cabang Toko Aktif
+              </label>
+              <select
+                value={activeBranch}
+                onChange={(e) => setActiveBranch(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              >
+                {settings.branches?.map((b, i) => (
+                  <option key={i} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Transaction Config */}
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4">
+          <h3 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+            <Receipt className="w-4 h-4 text-emerald-500" />
+            Pengaturan Transaksi & Pajak
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Pajak Resto/PB1 (%)
+              </label>
+              <input
+                type="number"
+                value={taxRate}
+                onChange={(e) => setTaxRate(e.target.value === '' ? '' : Number(e.target.value))}
+                placeholder="10"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Diskon Default (%)
+              </label>
+              <input
+                type="number"
+                value={defaultDiscountRate}
+                onChange={(e) => setDefaultDiscountRate(e.target.value === '' ? '' : Number(e.target.value))}
+                placeholder="0"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Prefix Awalan Invoice
+              </label>
+              <input
+                type="text"
+                value={invoicePrefix}
+                onChange={(e) => setInvoicePrefix(e.target.value)}
+                placeholder="INV-KP"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none font-mono"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Receipt Settings */}
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4">
+          <h3 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+            <FileText className="w-4 h-4 text-emerald-500" />
+            Pengaturan Cetak Struk
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Ukuran Printer Thermal Default
+              </label>
+              <select
+                value={receiptSize}
+                onChange={(e) => setReceiptSize(e.target.value as ReceiptSize)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              >
+                <option value="58mm">Thermal Printer 58mm (Kecil/Portable)</option>
+                <option value="80mm">Thermal Printer 80mm (Standar Resto)</option>
+                <option value="Full HD">Full HD Receipt Image</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Pesan Footer Struk (Catatan Bawah)
+              </label>
+              <input
+                type="text"
+                value={footerText}
+                onChange={(e) => setFooterText(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex items-center justify-between pt-2">
+          <button
+            type="button"
+            onClick={onResetData}
+            className="px-4 py-3 rounded-2xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold text-xs border border-amber-500/30 flex items-center gap-2 transition-all"
+          >
+            <RotateCcw className="w-4 h-4" />
+            <span>Reset Database Ke Data Default</span>
+          </button>
+
+          <button
+            type="submit"
+            disabled={isSaving}
+            className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm shadow-lg shadow-emerald-600/30 flex items-center gap-2 transition-all"
+          >
+            <Save className="w-4 h-4" />
+            <span>{isSaving ? 'Menyimpan...' : 'Simpan Semua Pengaturan'}</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  );
+};
