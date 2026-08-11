@@ -1,0 +1,818 @@
+{
+  "users": [
+    {
+      "id": "usr-owner",
+      "name": "Budi Santoso (Owner)",
+      "email": "owner@kasirpro.id",
+      "role": "Owner",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "branch": "Cabang Utama - Jakarta Pusat"
+    },
+    {
+      "id": "usr-admin",
+      "name": "Siti Rahma (Admin)",
+      "email": "admin@kasirpro.id",
+      "role": "Admin",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      "branch": "Cabang Utama - Jakarta Pusat"
+    },
+    {
+      "id": "usr-kasir",
+      "name": "Andi Pratama (Kasir)",
+      "email": "kasir@kasirpro.id",
+      "role": "Kasir",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      "branch": "Cabang Utama - Jakarta Pusat"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Makanan",
+      "icon": "Utensils"
+    },
+    {
+      "id": "cat-2",
+      "name": "Minuman",
+      "icon": "Coffee"
+    },
+    {
+      "id": "cat-3",
+      "name": "Snack",
+      "icon": "Cookie"
+    },
+    {
+      "id": "cat-4",
+      "name": "Dessert",
+      "icon": "IceCream"
+    },
+    {
+      "id": "cat-5",
+      "name": "Paket Hemat",
+      "icon": "Package"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "Nasi Goreng Spesial KasirPro",
+      "categoryId": "cat-1",
+      "categoryName": "Makanan",
+      "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+      "description": "Nasi goreng dengan telor mata sapi, sosis, dan kerupuk renyah khas Nusantara",
+      "capitalPrice": 15000,
+      "sellingPrice": 28000,
+      "stock": 45,
+      "minStockAlert": 10,
+      "status": "Tersedia",
+      "barcode": "899000101",
+      "createdAt": "2026-08-10T14:53:57.579Z"
+    },
+    {
+      "id": "prod-2",
+      "name": "Es Kopi Susu Aren Top",
+      "categoryId": "cat-2",
+      "categoryName": "Minuman",
+      "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+      "description": "Espresso arabika dipadu dengan susu segar dan gula aren asli",
+      "capitalPrice": 8000,
+      "sellingPrice": 22000,
+      "stock": 80,
+      "minStockAlert": 15,
+      "status": "Tersedia",
+      "barcode": "899000102",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-3",
+      "name": "Ayam Bakar Madu Pedas",
+      "categoryId": "cat-1",
+      "categoryName": "Makanan",
+      "image": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=80",
+      "description": "Paha/dada ayam bumbu madu gurih manis dipanggang empuk",
+      "capitalPrice": 18000,
+      "sellingPrice": 32000,
+      "stock": 25,
+      "minStockAlert": 5,
+      "status": "Tersedia",
+      "barcode": "899000103",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-4",
+      "name": "Es Teh Manis Jumbo",
+      "categoryId": "cat-2",
+      "categoryName": "Minuman",
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+      "description": "Teh melati manis segar dingin racikan khas Solo",
+      "capitalPrice": 2000,
+      "sellingPrice": 8000,
+      "stock": 120,
+      "minStockAlert": 20,
+      "status": "Tersedia",
+      "barcode": "899000104",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-5",
+      "name": "Kentang Goreng Keju Mayo",
+      "categoryId": "cat-3",
+      "categoryName": "Snack",
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80",
+      "description": "French fries garing ditaburi bubuk keju dan saus mayonaise premium",
+      "capitalPrice": 10000,
+      "sellingPrice": 20000,
+      "stock": 30,
+      "minStockAlert": 8,
+      "status": "Tersedia",
+      "barcode": "899000105",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-6",
+      "name": "Dimsum Ayam Crab (4 Pcs)",
+      "categoryId": "cat-3",
+      "categoryName": "Snack",
+      "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80",
+      "description": "Dimsum olahan daging ayam dan toping stik kepiting lembut gurih",
+      "capitalPrice": 12000,
+      "sellingPrice": 24000,
+      "stock": 4,
+      "minStockAlert": 10,
+      "status": "Tersedia",
+      "barcode": "899000106",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-7",
+      "name": "Croffle Syrup Maple Soft",
+      "categoryId": "cat-4",
+      "categoryName": "Dessert",
+      "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80",
+      "description": "Croissant wafel renyah disiram sirup maple dan whipped cream",
+      "capitalPrice": 12000,
+      "sellingPrice": 25000,
+      "stock": 18,
+      "minStockAlert": 5,
+      "status": "Tersedia",
+      "barcode": "899000107",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-8",
+      "name": "Paket Bento Rice & Chicken",
+      "categoryId": "cat-5",
+      "categoryName": "Paket Hemat",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
+      "description": "Nasi hangat + Chicken Katsu + Salad Wijen + Es Teh Manis",
+      "capitalPrice": 22000,
+      "sellingPrice": 38000,
+      "stock": 2,
+      "minStockAlert": 5,
+      "status": "Tersedia",
+      "barcode": "899000108",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    },
+    {
+      "id": "prod-9",
+      "name": "Matcha Latte Ice Blend",
+      "categoryId": "cat-2",
+      "categoryName": "Minuman",
+      "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+      "description": "Bubuk matcha Uji Jepang asli dengan susu creamy dingin",
+      "capitalPrice": 10000,
+      "sellingPrice": 26000,
+      "stock": 50,
+      "minStockAlert": 10,
+      "status": "Tersedia",
+      "barcode": "899000109",
+      "createdAt": "2026-08-10T14:53:57.580Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "trx-1",
+      "invoiceNumber": "INV-KP-20260810-100",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 100000,
+      "discount": 0,
+      "tax": 10000,
+      "total": 110000,
+      "profit": 64000,
+      "paymentMethod": "QRIS",
+      "paidAmount": 100000,
+      "changeAmount": -10000,
+      "createdAt": "2026-08-10T13:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-0-1",
+          "transactionId": "trx-1",
+          "productId": "prod-1",
+          "productName": "Nasi Goreng Spesial KasirPro",
+          "productImage": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 28000,
+          "capitalPrice": 15000,
+          "subtotal": 56000
+        },
+        {
+          "id": "det-0-2",
+          "transactionId": "trx-1",
+          "productId": "prod-2",
+          "productName": "Es Kopi Susu Aren Top",
+          "productImage": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 22000,
+          "capitalPrice": 8000,
+          "subtotal": 44000
+        }
+      ]
+    },
+    {
+      "id": "trx-2",
+      "invoiceNumber": "INV-KP-20260810-101",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 46000,
+      "discount": 0,
+      "tax": 4600,
+      "total": 50600,
+      "profit": 26600,
+      "paymentMethod": "Cash",
+      "paidAmount": 50000,
+      "changeAmount": -600,
+      "createdAt": "2026-08-10T12:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-1-1",
+          "transactionId": "trx-2",
+          "productId": "prod-8",
+          "productName": "Paket Bento Rice & Chicken",
+          "productImage": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 1,
+          "price": 38000,
+          "capitalPrice": 22000,
+          "subtotal": 38000
+        },
+        {
+          "id": "det-1-2",
+          "transactionId": "trx-2",
+          "productId": "prod-4",
+          "productName": "Es Teh Manis Jumbo",
+          "productImage": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+          "quantity": 1,
+          "price": 8000,
+          "capitalPrice": 2000,
+          "subtotal": 8000
+        }
+      ]
+    },
+    {
+      "id": "trx-3",
+      "invoiceNumber": "INV-KP-20260810-102",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 116000,
+      "discount": 0,
+      "tax": 11600,
+      "total": 127600,
+      "profit": 71600,
+      "paymentMethod": "Bank Transfer",
+      "paidAmount": 116000,
+      "changeAmount": -11600,
+      "createdAt": "2026-08-10T10:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-2-1",
+          "transactionId": "trx-3",
+          "productId": "prod-3",
+          "productName": "Ayam Bakar Madu Pedas",
+          "productImage": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 32000,
+          "capitalPrice": 18000,
+          "subtotal": 64000
+        },
+        {
+          "id": "det-2-2",
+          "transactionId": "trx-3",
+          "productId": "prod-9",
+          "productName": "Matcha Latte Ice Blend",
+          "productImage": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 26000,
+          "capitalPrice": 10000,
+          "subtotal": 52000
+        }
+      ]
+    },
+    {
+      "id": "trx-4",
+      "invoiceNumber": "INV-KP-20260810-103",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 126000,
+      "discount": 0,
+      "tax": 12600,
+      "total": 138600,
+      "profit": 84600,
+      "paymentMethod": "Debit Card",
+      "paidAmount": 150000,
+      "changeAmount": 11400,
+      "createdAt": "2026-08-10T09:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-3-1",
+          "transactionId": "trx-4",
+          "productId": "prod-5",
+          "productName": "Kentang Goreng Keju Mayo",
+          "productImage": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 20000,
+          "capitalPrice": 10000,
+          "subtotal": 60000
+        },
+        {
+          "id": "det-3-2",
+          "transactionId": "trx-4",
+          "productId": "prod-2",
+          "productName": "Es Kopi Susu Aren Top",
+          "productImage": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 22000,
+          "capitalPrice": 8000,
+          "subtotal": 66000
+        }
+      ]
+    },
+    {
+      "id": "trx-5",
+      "invoiceNumber": "INV-KP-20260810-104",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 66000,
+      "discount": 0,
+      "tax": 6600,
+      "total": 72600,
+      "profit": 44600,
+      "paymentMethod": "QRIS",
+      "paidAmount": 70000,
+      "changeAmount": -2600,
+      "createdAt": "2026-08-10T08:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-4-1",
+          "transactionId": "trx-5",
+          "productId": "prod-7",
+          "productName": "Croffle Syrup Maple Soft",
+          "productImage": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 25000,
+          "capitalPrice": 12000,
+          "subtotal": 50000
+        },
+        {
+          "id": "det-4-2",
+          "transactionId": "trx-5",
+          "productId": "prod-4",
+          "productName": "Es Teh Manis Jumbo",
+          "productImage": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 8000,
+          "capitalPrice": 2000,
+          "subtotal": 16000
+        }
+      ]
+    },
+    {
+      "id": "trx-6",
+      "invoiceNumber": "INV-KP-20260809-105",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 150000,
+      "discount": 0,
+      "tax": 15000,
+      "total": 165000,
+      "profit": 96000,
+      "paymentMethod": "Cash",
+      "paidAmount": 200000,
+      "changeAmount": 35000,
+      "createdAt": "2026-08-09T04:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-5-1",
+          "transactionId": "trx-6",
+          "productId": "prod-1",
+          "productName": "Nasi Goreng Spesial KasirPro",
+          "productImage": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 28000,
+          "capitalPrice": 15000,
+          "subtotal": 84000
+        },
+        {
+          "id": "det-5-2",
+          "transactionId": "trx-6",
+          "productId": "prod-2",
+          "productName": "Es Kopi Susu Aren Top",
+          "productImage": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 22000,
+          "capitalPrice": 8000,
+          "subtotal": 66000
+        }
+      ]
+    },
+    {
+      "id": "trx-7",
+      "invoiceNumber": "INV-KP-20260809-106",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 80000,
+      "discount": 0,
+      "tax": 8000,
+      "total": 88000,
+      "profit": 46000,
+      "paymentMethod": "QRIS",
+      "paidAmount": 80000,
+      "changeAmount": -8000,
+      "createdAt": "2026-08-09T00:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-6-1",
+          "transactionId": "trx-7",
+          "productId": "prod-3",
+          "productName": "Ayam Bakar Madu Pedas",
+          "productImage": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 1,
+          "price": 32000,
+          "capitalPrice": 18000,
+          "subtotal": 32000
+        },
+        {
+          "id": "det-6-2",
+          "transactionId": "trx-7",
+          "productId": "prod-6",
+          "productName": "Dimsum Ayam Crab (4 Pcs)",
+          "productImage": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 24000,
+          "capitalPrice": 12000,
+          "subtotal": 48000
+        }
+      ]
+    },
+    {
+      "id": "trx-8",
+      "invoiceNumber": "INV-KP-20260809-107",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 128000,
+      "discount": 0,
+      "tax": 12800,
+      "total": 140800,
+      "profit": 76800,
+      "paymentMethod": "Debit Card",
+      "paidAmount": 130000,
+      "changeAmount": -10800,
+      "createdAt": "2026-08-08T20:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-7-1",
+          "transactionId": "trx-8",
+          "productId": "prod-8",
+          "productName": "Paket Bento Rice & Chicken",
+          "productImage": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 38000,
+          "capitalPrice": 22000,
+          "subtotal": 76000
+        },
+        {
+          "id": "det-7-2",
+          "transactionId": "trx-8",
+          "productId": "prod-9",
+          "productName": "Matcha Latte Ice Blend",
+          "productImage": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 26000,
+          "capitalPrice": 10000,
+          "subtotal": 52000
+        }
+      ]
+    },
+    {
+      "id": "trx-9",
+      "invoiceNumber": "INV-KP-20260808-108",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 144000,
+      "discount": 0,
+      "tax": 14400,
+      "total": 158400,
+      "profit": 90400,
+      "paymentMethod": "QRIS",
+      "paidAmount": 150000,
+      "changeAmount": -8400,
+      "createdAt": "2026-08-08T02:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-8-1",
+          "transactionId": "trx-9",
+          "productId": "prod-1",
+          "productName": "Nasi Goreng Spesial KasirPro",
+          "productImage": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 4,
+          "price": 28000,
+          "capitalPrice": 15000,
+          "subtotal": 112000
+        },
+        {
+          "id": "det-8-2",
+          "transactionId": "trx-9",
+          "productId": "prod-4",
+          "productName": "Es Teh Manis Jumbo",
+          "productImage": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+          "quantity": 4,
+          "price": 8000,
+          "capitalPrice": 2000,
+          "subtotal": 32000
+        }
+      ]
+    },
+    {
+      "id": "trx-10",
+      "invoiceNumber": "INV-KP-20260808-109",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 84000,
+      "discount": 0,
+      "tax": 8400,
+      "total": 92400,
+      "profit": 56400,
+      "paymentMethod": "Cash",
+      "paidAmount": 100000,
+      "changeAmount": 7600,
+      "createdAt": "2026-08-07T22:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-9-1",
+          "transactionId": "trx-10",
+          "productId": "prod-5",
+          "productName": "Kentang Goreng Keju Mayo",
+          "productImage": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 20000,
+          "capitalPrice": 10000,
+          "subtotal": 40000
+        },
+        {
+          "id": "det-9-2",
+          "transactionId": "trx-10",
+          "productId": "prod-2",
+          "productName": "Es Kopi Susu Aren Top",
+          "productImage": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 22000,
+          "capitalPrice": 8000,
+          "subtotal": 44000
+        }
+      ]
+    },
+    {
+      "id": "trx-11",
+      "invoiceNumber": "INV-KP-20260807-110",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 146000,
+      "discount": 0,
+      "tax": 14600,
+      "total": 160600,
+      "profit": 82600,
+      "paymentMethod": "Bank Transfer",
+      "paidAmount": 160000,
+      "changeAmount": -600,
+      "createdAt": "2026-08-07T03:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-10-1",
+          "transactionId": "trx-11",
+          "productId": "prod-3",
+          "productName": "Ayam Bakar Madu Pedas",
+          "productImage": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 32000,
+          "capitalPrice": 18000,
+          "subtotal": 96000
+        },
+        {
+          "id": "det-10-2",
+          "transactionId": "trx-11",
+          "productId": "prod-7",
+          "productName": "Croffle Syrup Maple Soft",
+          "productImage": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "price": 25000,
+          "capitalPrice": 12000,
+          "subtotal": 50000
+        }
+      ]
+    },
+    {
+      "id": "trx-12",
+      "invoiceNumber": "INV-KP-20260806-111",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 180000,
+      "discount": 0,
+      "tax": 18000,
+      "total": 198000,
+      "profit": 108000,
+      "paymentMethod": "QRIS",
+      "paidAmount": 200000,
+      "changeAmount": 2000,
+      "createdAt": "2026-08-06T01:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-11-1",
+          "transactionId": "trx-12",
+          "productId": "prod-8",
+          "productName": "Paket Bento Rice & Chicken",
+          "productImage": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 38000,
+          "capitalPrice": 22000,
+          "subtotal": 114000
+        },
+        {
+          "id": "det-11-2",
+          "transactionId": "trx-12",
+          "productId": "prod-2",
+          "productName": "Es Kopi Susu Aren Top",
+          "productImage": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "price": 22000,
+          "capitalPrice": 8000,
+          "subtotal": 66000
+        }
+      ]
+    },
+    {
+      "id": "trx-13",
+      "invoiceNumber": "INV-KP-20260805-112",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 270000,
+      "discount": 0,
+      "tax": 27000,
+      "total": 297000,
+      "profit": 172000,
+      "paymentMethod": "Debit Card",
+      "paidAmount": 300000,
+      "changeAmount": 3000,
+      "createdAt": "2026-08-04T23:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-12-1",
+          "transactionId": "trx-13",
+          "productId": "prod-1",
+          "productName": "Nasi Goreng Spesial KasirPro",
+          "productImage": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+          "quantity": 5,
+          "price": 28000,
+          "capitalPrice": 15000,
+          "subtotal": 140000
+        },
+        {
+          "id": "det-12-2",
+          "transactionId": "trx-13",
+          "productId": "prod-9",
+          "productName": "Matcha Latte Ice Blend",
+          "productImage": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+          "quantity": 5,
+          "price": 26000,
+          "capitalPrice": 10000,
+          "subtotal": 130000
+        }
+      ]
+    },
+    {
+      "id": "trx-14",
+      "invoiceNumber": "INV-KP-20260804-113",
+      "userId": "usr-kasir",
+      "userName": "Andi Pratama (Kasir)",
+      "userRole": "Kasir",
+      "subtotal": 128000,
+      "discount": 0,
+      "tax": 12800,
+      "total": 140800,
+      "profit": 84800,
+      "paymentMethod": "Cash",
+      "paidAmount": 150000,
+      "changeAmount": 9200,
+      "createdAt": "2026-08-03T21:53:57.581Z",
+      "branchName": "Cabang Utama - Jakarta Pusat",
+      "details": [
+        {
+          "id": "det-13-1",
+          "transactionId": "trx-14",
+          "productId": "prod-6",
+          "productName": "Dimsum Ayam Crab (4 Pcs)",
+          "productImage": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80",
+          "quantity": 4,
+          "price": 24000,
+          "capitalPrice": 12000,
+          "subtotal": 96000
+        },
+        {
+          "id": "det-13-2",
+          "transactionId": "trx-14",
+          "productId": "prod-4",
+          "productName": "Es Teh Manis Jumbo",
+          "productImage": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+          "quantity": 4,
+          "price": 8000,
+          "capitalPrice": 2000,
+          "subtotal": 32000
+        }
+      ]
+    }
+  ],
+  "stockHistory": [
+    {
+      "id": "stk-1",
+      "productId": "prod-1",
+      "productName": "Nasi Goreng Spesial KasirPro",
+      "type": "in",
+      "quantity": 50,
+      "description": "Stok awal bahan baku nasi goreng",
+      "createdAt": "2026-08-05T14:53:57.580Z",
+      "userName": "Siti Rahma (Admin)"
+    },
+    {
+      "id": "stk-2",
+      "productId": "prod-2",
+      "productName": "Es Kopi Susu Aren Top",
+      "type": "in",
+      "quantity": 100,
+      "description": "Pengadaan biji kopi espresso & gula aren",
+      "createdAt": "2026-08-06T14:53:57.580Z",
+      "userName": "Siti Rahma (Admin)"
+    },
+    {
+      "id": "stk-3",
+      "productId": "prod-6",
+      "productName": "Dimsum Ayam Crab (4 Pcs)",
+      "type": "out",
+      "quantity": 10,
+      "description": "Penyesuaian stok bahan rusak/expired",
+      "createdAt": "2026-08-08T14:53:57.580Z",
+      "userName": "Budi Santoso (Owner)"
+    }
+  ],
+  "settings": {
+    "storeName": "KasirPro Cafe & Resto",
+    "logo": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=300&q=80",
+    "address": "Jl. Jendral Sudirman No. 45, Kebayoran Baru, Jakarta Selatan",
+    "phone": "0812-3456-7890",
+    "taxRate": 10,
+    "defaultDiscountRate": 0,
+    "invoicePrefix": "INV-KP",
+    "receiptSize": "80mm",
+    "footerText": "Terima kasih atas kunjungan Anda! Selamat menikmati hidangan.",
+    "enableBarcodeScanner": true,
+    "branches": [
+      "Cabang Utama - Jakarta Pusat",
+      "Cabang 2 - Bandung",
+      "Cabang 3 - Surabaya"
+    ],
+    "activeBranch": "Cabang Utama - Jakarta Pusat"
+  }
+}
