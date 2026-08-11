@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@media print {
+  /* Hide all non-printable elements */
+  body * {
+    visibility: hidden !important;
+  }
+  
+  /* Show only printable receipt */
+  #printable-receipt, #printable-receipt * {
+    visibility: visible !important;
+  }
+  
+  #printable-receipt {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid !important;
+  }
+
+  @page {
+    margin: 2mm;
+    size: auto;
+  }
+}

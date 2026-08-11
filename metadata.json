@@ -1,0 +1,8 @@
+{
+  "name": "KasirPro",
+  "description": "Aplikasi Kasir Point of Sale (POS) Modern untuk UMKM, Cafe, Restoran, dan Retail",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
